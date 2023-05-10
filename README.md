@@ -60,7 +60,7 @@ Proof. reflexivity. (* fail *) Qed.
 
 ### Ban `Definition`
 Types defined by `Definition` are not a subject to template polymorphism.
-Use `Record` instead of `Definition` for defining generic types (i.e. types that quantify over `Type` universes).
+Use `Record` or `Inductive` instead of `Definition` for defining generic types (i.e. types that quantify over `Type` universes).
 `Notation` can also be an alternative solution.
 
 See the following example.

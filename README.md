@@ -1,5 +1,5 @@
 # Coq-tips
-A tip for poor programmers who have to use Coq for their projects.
+Some tips for poor programmers who have to use Coq for their projects.
 
 ## Notation and implicit arguments
 You may encounter a mysterious failure of unification. e.g. `eapply` fails though the conclusion of the given term and the goal seems equal.

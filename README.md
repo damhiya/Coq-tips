@@ -2,7 +2,7 @@
 A tip for poor programmers who have to use Coq for their projects.
 
 ## Notation and implicit arguments
-You may encounter a mysterious failure of unification. e.g. `eapply` fails though the given term and the goal seems equal.
+You may encounter a mysterious failure of unification. e.g. `eapply` fails though the conclusion of the given term and the goal seems equal.
 In that case, try using `Set Printing All` to disable all notation and implicit arguments.
 
 ## Normalization of proof terms
@@ -24,7 +24,7 @@ Proof. reflexivity. (* fail *) Qed.
 
 ### Ban `Definition`
 Types defined by `Definition` are not a subject to template polymorphism.
-Use `Record` instead of `Definition` for defining generic types (i.e. types that quantifies over `Type` universes).
+Use `Record` instead of `Definition` for defining generic types (i.e. types that quantify over `Type` universes).
 `Notation` can also be an alternative solution.
 
 See the follwing example.

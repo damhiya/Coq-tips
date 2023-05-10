@@ -5,7 +5,8 @@ A tip for poor programmers who have to use Coq for their projects.
 `Set Printing Universes.` and `Print Universes.` are useful for debugging universe problems.
 
 ### Ban `Definition`
-Use `Record` instead of `Definition` for defining generic types (i.e. types that quantifies over `Type` universe).
+Type defined by `Definition` are not a subject to template polymorphism.
+Use `Record` instead of `Definition` for defining generic types (i.e. types that quantifies over `Type` universes).
 `Notation` can also be an alternative solution.
 See the follwing example
 ```coq

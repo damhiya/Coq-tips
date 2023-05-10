@@ -27,14 +27,14 @@ Types defined by `Definition` are not a subject to template polymorphism.
 Use `Record` instead of `Definition` for defining generic types (i.e. types that quantify over `Type` universes).
 `Notation` can also be an alternative solution.
 
-See the follwing example.
+See the following example.
 ```coq
 Definition mylist1 := list.
 Definition mylist2 (A : Type) := list A.
 Record mylist3 (A : Type) := { car : mylist A; }.
 
-Check [mylist1 nat] : list Type.
-Check [mylist2 nat] : list Type.
-Check mylist2 nat : Set.
-Check mylist3 nat : Set.
+Check [mylist1 nat] : list Type. (* fail *)
+Check [mylist2 nat] : list Type. (* pass *)
+Check mylist2 nat : Set. (* fail *)
+Check mylist3 nat : Set. (* pass *)
 ```

@@ -1,6 +1,10 @@
 # Coq-tips
 A tip for poor programmers who have to use Coq for their projects.
 
+## Notation and implicit arguments
+You may encounter a mysterious failure of unification. e.g. `eapply` fails though the given term and the goal seems equal.
+In that case, try using `Set Printing All` to disable all notation and implicit arguments.
+
 ## Normalization of proof terms
 ### `Qed` and `Defined`
 It's okay to use proof mode for defining computable functions, but you must end the proof with `Defined` instead of `Qed`.

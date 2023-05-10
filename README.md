@@ -1,9 +1,27 @@
 # Coq-tips
 Some tips for poor programmers who have to use Coq for their projects.
 
-## Notation and implicit arguments
+## Syntactic problems
+### Notation and implicit arguments
 You may encounter a mysterious failure of unification. e.g. `eapply` fails though the conclusion of the given term and the goal seems equal.
 In that case, try using `Set Printing All` to disable all notation and implicit arguments.
+### Syntactically huge terms
+Sometimes the term I want to refer which is contained in the context or the proof goal is syntactically too huge.
+`match` and `match goal` tactics are very useful in such situation.
+
+If you want to refer a subterm of the goal, use `match goal`.
+```coq
+match goal with
+| ... => ...
+end
+```
+
+If you want to refer a subterm of the type of a variable in the context, use combination of `match` and `type of`.
+```coq
+match type of H with
+| ... => ... 
+end.
+```
 
 ## Normalization of proof terms
 ### `Qed` and `Defined`

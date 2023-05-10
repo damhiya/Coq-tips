@@ -7,6 +7,7 @@ Naming in Coq is a messy chaos. I personally use following convention.
 * `camelCase` for propositions and functions
 * `snake_case` for lemmas and theorems
 * `SCREAMING_SNAKE_CASE` for local hypothesis in proof mode
+
 This gives sane name especially for lemmas involving several functions. e.g. `zipWith_length` instead of `zip_with_length`
 
 ## Syntactic problems

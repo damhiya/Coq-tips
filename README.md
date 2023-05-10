@@ -74,3 +74,13 @@ Check [mylist2 nat] : list Type. (* pass *)
 Check mylist2 nat : Set. (* fail *)
 Check mylist3 nat : Set. (* pass *)
 ```
+
+## Other pitfalls
+
+### `:>`
+The meaning of `:>` when it is used in a record definition is completely different from the meaning when it is used in a class definition.
+* In record definition, it declares the field as a coercion.
+* In class definition, it declares the field as an instance of it's type (when the type of that field is also a class).
+Note that this syntax is a subject to change. The `::` syntax will replace the usage of `:>` for instance declaration.
+
+See also [defining-record-types](https://coq.inria.fr/refman/language/core/records.html#defining-record-types)

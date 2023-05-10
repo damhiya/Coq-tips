@@ -1,6 +1,20 @@
 # Coq-tips
 A tip for poor programmers who have to use Coq for their projects.
 
+## Normalization of proof terms
+### `Qed` and `Defined`
+It's okay to use proof mode for defining computable functions, but you must end the proof with `Defined` instead of `Qed`.
+Otherwise, it won't reduce.
+### `lia`
+`lia` generates opaque proof term.
+```coq
+Lemma one_le_one : 1 <= 1.
+Proof. lia. Defined.
+
+Goal one_le_one = le_n 1.
+Proof. reflexivity. (* fail *) Qed.
+```
+
 ## Universe problems
 `Set Printing Universes.` and `Print Universes.` are useful for debugging universe problems.
 

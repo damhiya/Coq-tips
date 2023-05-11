@@ -128,9 +128,9 @@ Use `Record` or `Inductive` instead of `Definition` for wrapping generic types (
 
 See the following example.
 ```coq
-Definition mylist1 := list.
-Definition mylist2 (A : Type) := list A.
-Record mylist3 (A : Type) := { car : list A; }.
+Definition mylist1 := list. (* No template polymorphism. Shares universe with list *)
+Definition mylist2 (A : Type) := list A. (* No template polymorphism, but has it's own universe level *)
+Record mylist3 (A : Type) := { car : list A; }. (* Template polymorphic definition *)
 
 Check [mylist1 nat] : list Type. (* fail *)
 Check [mylist2 nat] : list Type. (* pass *)

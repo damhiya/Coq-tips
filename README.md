@@ -1,6 +1,12 @@
 # Coq-tips
 Some tips for poor programmers who have to use Coq for their projects.
 
+## Dependent types
+
+### Dependent pattern matching
+Coq's dependent pattern matching is very simple but hard to use.
+There is a plugin called [Coq-Equations](https://github.com/mattam82/Coq-Equations) which lets you write dependent functions more easily. (That syntax is pretty similar to Agda)
+
 ## Naming conventions
 Naming in Coq is a messy chaos. I personally use following convention.
 * `PascalCase` for types

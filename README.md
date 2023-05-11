@@ -12,7 +12,7 @@ This gives sane name especially for lemmas involving several functions. e.g. `zi
 
 ## Syntactic problems
 ### Notation and implicit arguments
-You may encounter a mysterious failure of unification. e.g. `eapply` fails though the conclusion of the given term and the goal seems equal.
+You may encounter a mysterious failure of unification. e.g. `eapply` fails though the conclusion of the given term and the goal seems to match.
 In that case, try using `Set Printing All` to disable all notation and implicit arguments.
 ### Syntactically huge terms
 Sometimes the term you want to refer which is contained in the context or the proof goal is syntactically too huge.
@@ -37,13 +37,14 @@ There are several useful features for mixing tactics with manually written proof
 ### `refine` tactic
 Similar to `exact`, but holes are allowed.
 ### `Program Definition` and `Program Fixpoint`
-To leave holes in a definition, or to obligate the proof of the termination of recursive definition.
+Use this to leave holes in a definition, or to obligate the proof of the termination of recursive definition.
 ### `ltac:(tac)`
-Filling a hole in an expression by invoking a tactic.
+This is used for filling a hole in an expression by invoking a tactic.
 
 ## Normalization of proof terms
 ### `Qed` and `Defined`
-It's okay to use proof mode for defining computable functions, but you must end the proof with `Defined` instead of `Qed`.
+`Qed` adds the proof term as an opaque constant.
+So when you use proof mode for defining computable functions, you must end the proof with `Defined` instead of `Qed`.
 Otherwise, it won't reduce.
 ### `lia`
 `lia` generates opaque proof term.
@@ -56,6 +57,9 @@ Proof. reflexivity. (* fail *) Qed.
 ```
 
 ## Universe problems
+In Coq, there is a infinite and cumulative hierarchy of universes.
+
+### Printing universes
 `Set Printing Universes` and `Print Universes` are useful for debugging universe problems.
 
 ### Ban `Definition`

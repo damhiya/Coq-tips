@@ -46,6 +46,26 @@ Qed.
 ```
 In this way, you can avoid referring an existential variable by natural number.
 
+### Naming existential variables
+You cannot refer an existential variable by automatically generated name.
+```coq
+Lemma foo : nat.
+Proof.
+  eapply Foo.
+  unify ?A nat. (* fail *)
+Abort.
+```
+
+You can name an existential variable by using `?[A]` syntax.
+```coq
+Lemma foo : nat.
+Proof.
+  eapply (Foo ?[A]).
+  unify ?A nat.
+  exact S.
+Qed.
+```
+
 ### Automation
 `is_evar` is a useful tactic for dealing with existential variables.
 

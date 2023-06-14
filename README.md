@@ -16,6 +16,36 @@ Naming in Coq is a messy chaos. I personally use following convention.
 
 This gives sane name especially for lemmas involving several functions. e.g. `zipWith_length` instead of `zip_with_length`
 
+## Existential variables
+Coq has a notion of existential variables, and they can be introduced in a proof mode by using tactics prefixed by `e` such as `eapply`, `eauto`, etc.
+
+### Instantiating existential variables
+Some existential variables can be instantiated automatically by unification, but you have to manually instantiate it occasionally.
+The `instantiate` tactic can be used in such case.
+```coq
+Axiom Foo : forall (A : Type), (A -> A) -> nat.
+
+Lemma foo : nat.
+Proof.
+  eapply Foo.
+  instantiate (1 := nat).
+  exact S.
+Qed.
+```
+A significant drawback of `instantiate` is that it takes *position* of the existential variable (which is a natural number), not it's name.
+This leads to fragile proof since introduction of new existential variable may change the position number.
+
+An alternative approach is using the `unify` tactic.
+```coq
+Lemma foo : nat.
+Proof.
+  eapply Foo.
+  match goal with [|- ?A -> ?A ] => unify A nat end.
+  exact S.
+Qed.
+```
+In this way, you can avoid referring an existential variable by natural number.
+
 ## Syntactic problems
 
 ### Notation and implicit arguments

@@ -46,6 +46,9 @@ Qed.
 ```
 In this way, you can avoid referring an existential variable by natural number.
 
+### Automation
+`is_evar` is a useful tactic for dealing with existential variables.
+
 ## Syntactic problems
 
 ### Notation and implicit arguments

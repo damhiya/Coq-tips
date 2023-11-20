@@ -99,7 +99,7 @@ end.
 Coq has no special syntax for updating record.
 So you have to enumerate every fields of the record even if you're updating just a single field.
 Lens (which is prevalent in Haskell projects) is a useful tool in such case.
-You can also generate lenses automatically by using packages like [coq-lens](https://github.com/bedrocksystems/coq-lens).
+You can automatically generate lenses by using packages like [coq-lens](https://github.com/bedrocksystems/coq-lens).
 
 ### `:>`
 The meaning of `:>` when it is used in a record definition is completely different from the meaning when it is used in a class definition.
@@ -182,7 +182,7 @@ Use `Record` or `Inductive` instead of `Definition` for wrapping generic types (
 See the following example.
 ```coq
 Definition mylist1 := list. (* No template polymorphism. Shares universe with list *)
-Definition mylist2 (A : Type) := list A. (* No template polymorphism, but has it's own universe level *)
+Definition mylist2 (A : Type) := list A. (* No template polymorphism, but has its own universe level *)
 Record mylist3 (A : Type) := { car : list A; }. (* Template polymorphic definition *)
 
 Check [mylist1 nat] : list Type. (* fail *)
